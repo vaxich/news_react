@@ -1,0 +1,39 @@
+@import '../fonts/fonts.scss';
+
+.header-main {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 406px;
+    margin-right: 406px;
+    padding-top: 35px;
+    padding-bottom: 95px;
+    
+}
+
+.header-left {
+    margin-top: 12px;
+    font-family: Proxima Nova;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 30px;
+    color: #333D51;
+}
+
+.header-right {
+    display: flex;
+    list-style-type: none;
+}
+li {
+    padding-left: 35px;
+}
+a {
+    text-decoration: none; 
+    font-size: 18px;
+    line-height: 22px;
+    color: #333D51;
+}
+a:hover {
+    text-decoration: none;
+    color: blue;
+    size: 55px;
+}
