@@ -1,48 +1,53 @@
 import React from 'react';
-import '../newsAll/newsAll.scss';
+import style from './newsAll.module.css';
 import {withRouter} from 'react-router-dom';
 
-const NewsAll = props => {   
+import styleContainer from "../style/container.module.css";
 
-    let oneNews = props.newsOnAll && props.newsOnAll.filter((item, index) => {  
-        
-    return index < props.all;
-        
-    }).map(item => {
-    return (    
-        
-        <div onClick = {()=> {
-            
-            props.history.push('/News/' + item.title, item)
-            
-        }}>
-            
-        <div className="NewsAll__block">
-            <p className="NewsAll__block-title">{item.title}  </p>
-            <div className="NewsAll__block-bottom">
-                <p className="NewsAll__author"> {item.source.name} </p>
-                <p className="NewsAll__published">{item.publishedAt.substr(0,10)}  </p>
-            </div>
-            
-        </div>
-        </div> 
-            )
-    })
-;
-    
-    return (
-        
-        <div className = "newsAll">  
-            <div > 
-                <p className="newsAll__title">{props.title}</p>
-                <div className="newsAll__title-2">
-                    <p className="newsAll__title">{props.title2}</p>
-                    <p className="newsAll__title newsAll__title-blue">{props.title3}</p>
+const NewsAll = props => {
+
+    let oneNews = props.newsOnAll && props.newsOnAll.filter((item, index) => {
+
+            return index < props.all;
+
+        }).map(item => {
+            return (
+
+                <div className={style.NewsAll__block} onClick={() => {
+
+                    props.history.push('/News/' + item.title, item)
+
+                }}>
+
+
+                        <div>
+                            <p className={style.NewsAllBlockTitle}>{item.title}  </p>
+                        </div>
+
+                        <div className={style.NewsAll__block__bottom}>
+                            <p className={style.NewsAll__author}> {item.source.name} </p>
+                            <p className={style.NewsAll__published}>{item.publishedAt.substr(0, 10)}  </p>
+                        </div>
+
+
                 </div>
-                
-            </div>                                   
-            
-            <div className="newsAll__mainBlock">{oneNews}</div> 
+            )
+        })
+    ;
+
+    return (
+
+        <div className={styleContainer.container}>
+            <div>
+                <p className={style.newsAllTitle}>{props.title}</p>
+                <div className={style.newsAllTitle2}>
+                    <p className={style.newsAllTitle}>{props.title2}</p>
+                    <p className={` ${style.newsAllTitle} ${style.newsAllTitleBlue}`}>{props.title3}</p>
+                </div>
+
+            </div>
+
+            <div className={style.newsAllMainBlock}>{oneNews}</div>
         </div>
     )
 }
