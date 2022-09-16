@@ -139,6 +139,7 @@
     color: #fff;
     display: inline-block;
     background-color: #4169e1;
+    transform: scale(1);
 }
 .contactBotton:hover{
     /*background-color: #fff;*/
